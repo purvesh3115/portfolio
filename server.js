@@ -201,8 +201,44 @@ app.use((err, req, res, next) => {
 });
 
 // Start Server
-app.listen(PORT, () => {
-    console.log(`\n🚀 Backend server running on http://localhost:${PORT}`);
-    console.log(`📧 Email notifications enabled (${process.env.EMAIL_SERVICE})`);
-    console.log(`🔗 CORS enabled for: ${process.env.FRONTEND_URL || 'http://localhost:3000'}\n`);
-});
+// If USE_HTTPS is set, create a self-signed HTTPS server on PORT (default 5000)
+// and an HTTP server on PORT+1 that redirects to HTTPS. Otherwise, start plain HTTP.
+const useHttps = process.env.USE_HTTPS === '1' || process.env.USE_HTTPS === 'true';
+if (useHttps) {
+    const https = require('https');
+    let pems;
+    try {
+        // generate a temporary self-signed certificate at runtime
+        const selfsigned = require('selfsigned');
+        pems = selfsigned.generate(null, { days: 365 });
+    } catch (e) {
+        console.error('Please run `npm install selfsigned` to enable HTTPS support.');
+        process.exit(1);
+    }
+
+    const HTTPS_PORT = PORT;
+    const HTTP_PORT = Number(PORT) + 1;
+
+    https.createServer({ key: pems.private, cert: pems.cert }, app).listen(HTTPS_PORT, () => {
+        console.log(`\n🔒 HTTPS server running on https://localhost:${HTTPS_PORT}`);
+        console.log(`📧 Email notifications enabled (${process.env.EMAIL_SERVICE})`);
+        console.log(`🔗 CORS enabled for: ${process.env.FRONTEND_URL || 'http://localhost:3000'}\n`);
+    });
+
+    // simple HTTP server to redirect to HTTPS
+    const http = require('http');
+    http.createServer((req, res) => {
+        const host = req.headers.host ? req.headers.host.split(':')[0] : 'localhost';
+        res.writeHead(301, { Location: `https://${host}:${HTTPS_PORT}${req.url}` });
+        res.end();
+    }).listen(HTTP_PORT, () => {
+        console.log(`➡️  HTTP redirector running on http://localhost:${HTTP_PORT} -> https://localhost:${HTTPS_PORT}`);
+    });
+
+} else {
+    app.listen(PORT, () => {
+        console.log(`\n🚀 Backend server running on http://localhost:${PORT}`);
+        console.log(`📧 Email notifications enabled (${process.env.EMAIL_SERVICE})`);
+        console.log(`🔗 CORS enabled for: ${process.env.FRONTEND_URL || 'http://localhost:3000'}\n`);
+    });
+}

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="dsBg" x1="0" x2="1"><stop offset="0%" stop-color="#051223"/><stop offset="100%" stop-color="#071426"/></linearGradient>
+    <linearGradient id="accentA" x1="0" x2="1"><stop offset="0%" stop-color="#3cd7ff"/><stop offset="100%" stop-color="#a4baff"/></linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+
+  <rect width="1200" height="480" fill="url(#dsBg)"/>
+
+  <!-- large main display -->
+  <g transform="translate(80,56)">
+    <rect x="0" y="0" width="720" height="320" rx="14" fill="rgba(255,255,255,0.02)" stroke="rgba(60,215,255,0.04)"/>
+    <!-- content thumbnails -->
+    <rect x="20" y="18" width="240" height="120" rx="8" fill="#071827" stroke="rgba(60,215,255,0.03)"/>
+    <rect x="284" y="18" width="390" height="120" rx="8" fill="#081826" stroke="rgba(237,177,255,0.02)"/>
+    <rect x="20" y="150" width="654" height="140" rx="8" fill="rgba(255,255,255,0.01)"/>
+
+    <!-- schedule chip -->
+    <rect x="600" y="24" width="84" height="28" rx="6" fill="url(#accentA)" opacity="0.14"/>
+  </g>
+
+  <!-- multiple smaller displays on right -->
+  <g transform="translate(840,58)">
+    <rect x="0" y="0" width="280" height="80" rx="8" fill="rgba(255,255,255,0.015)"/>
+    <rect x="0" y="100" width="132" height="80" rx="8" fill="rgba(255,255,255,0.012)"/>
+    <rect x="148" y="100" width="132" height="80" rx="8" fill="rgba(255,255,255,0.012)"/>
+    <!-- network lines -->
+    <line x1="-60" y1="40" x2="-10" y2="40" stroke="#3cd7ff" stroke-opacity="0.08" stroke-width="2"/>
+    <line x1="-60" y1="140" x2="-10" y2="140" stroke="#edb1ff" stroke-opacity="0.06" stroke-width="2"/>
+  </g>
+
+  <!-- map pins / location indicators -->
+  <g>
+    <circle cx="420" cy="380" r="56" fill="rgba(60,215,255,0.04)" filter="url(#soft)"/>
+    <circle cx="720" cy="380" r="40" fill="rgba(237,177,255,0.03)" filter="url(#soft)"/>
+    <rect x="380" y="332" width="220" height="58" rx="10" fill="#071827" opacity="0.6"/>
+  </g>
+
+  <!-- small CMS panel (bottom-left) -->
+  <g transform="translate(60,370)">
+    <rect x="0" y="0" width="300" height="64" rx="10" fill="rgba(255,255,255,0.02)"/>
+    <rect x="12" y="12" width="80" height="40" rx="6" fill="#0b1b26"/>
+    <rect x="104" y="12" width="176" height="40" rx="6" fill="#081826"/>
+  </g>
+
+</svg>

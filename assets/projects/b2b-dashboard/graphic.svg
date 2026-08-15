@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#071222" />
+      <stop offset="100%" stop-color="#0d1520" />
+    </linearGradient>
+    <radialGradient id="glowC" cx="30%" cy="25%" r="40%">
+      <stop offset="0%" stop-color="#3cd7ff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3cd7ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowV" cx="80%" cy="70%" r="45%">
+      <stop offset="0%" stop-color="#edb1ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#edb1ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16" result="b" />
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- transparent background so SVG blends with card -->
+  <rect width="1200" height="480" fill="url(#bg)" opacity="0.98"/>
+
+  <!-- ambient glows -->
+  <ellipse cx="260" cy="90" rx="260" ry="110" fill="url(#glowC)" filter="url(#soft)" />
+  <ellipse cx="920" cy="360" rx="300" ry="140" fill="url(#glowV)" filter="url(#soft)" />
+
+  <!-- central plate -->
+  <g transform="translate(120,48)">
+    <rect x="0" y="0" width="960" height="320" rx="18" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.03)"/>
+
+    <!-- left mini-cards -->
+    <rect x="28" y="22" width="140" height="84" rx="10" fill="rgba(255,255,255,0.015)" stroke="rgba(60,215,255,0.06)"/>
+    <rect x="180" y="22" width="180" height="84" rx="10" fill="rgba(255,255,255,0.015)" stroke="rgba(237,177,255,0.04)"/>
+
+    <!-- center grid -->
+    <rect x="28" y="122" width="660" height="168" rx="12" fill="rgba(10,14,20,0.6)" stroke="rgba(255,255,255,0.02)"/>
+
+    <!-- small campaign cards on right -->
+    <rect x="704" y="40" width="116" height="66" rx="10" fill="rgba(255,255,255,0.015)" stroke="rgba(60,215,255,0.05)"/>
+    <rect x="704" y="118" width="132" height="80" rx="12" fill="rgba(255,255,255,0.015)" stroke="rgba(237,177,255,0.04)"/>
+
+    <!-- analytics sparkline -->
+    <polyline points="64,268 140,236 220,248 312,210 420,234 540,200 660,224" fill="none" stroke="#64e3ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+    <circle cx="140" cy="236" r="3.6" fill="#a8e8ff"/>
+    <circle cx="312" cy="210" r="3.6" fill="#a8e8ff"/>
+
+    <!-- creator avatar cluster -->
+    <g>
+      <circle cx="250" cy="74" r="14" fill="#a8e8ff" />
+      <circle cx="284" cy="94" r="11" fill="#edb1ff" />
+      <circle cx="316" cy="70" r="10" fill="#3cd7ff" />
+      <line x1="264" y1="72" x2="312" y2="76" stroke="rgba(168,232,255,0.12)" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- brand nodes and sponsorship links -->
+    <g>
+      <circle cx="540" cy="62" r="6" fill="#a8e8ff" />
+      <circle cx="620" cy="98" r="6" fill="#edb1ff" />
+      <line x1="546" y1="62" x2="616" y2="98" stroke="rgba(237,177,255,0.08)" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- revenue micro-card -->
+    <rect x="540" y="206" width="92" height="64" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(60,215,255,0.04)"/>
+    <rect x="644" y="206" width="92" height="64" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(237,177,255,0.03)"/>
+  </g>
+
+</svg>

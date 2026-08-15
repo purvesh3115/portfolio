@@ -381,10 +381,14 @@
 <div class="gradient-blob blob-2"></div>
 <div class="gradient-blob blob-3"></div>
 
-<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(60,215,255,0.1)]">
-<nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
-<a class="font-display text-headline-md text-primary tracking-tighter hover:text-secondary transition-colors" href="#hero">Purvesh</a>
-<div class="hidden md:flex gap-md items-center">
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(60,215,255,0.1)] overflow-x-hidden">
+<nav class="flex justify-between items-center px-4 md:px-gutter py-4 max-w-container-max mx-auto w-full">
+<a class="font-display text-headline-md text-primary tracking-tighter hover:text-secondary transition-colors whitespace-nowrap" href="#hero">Purvesh</a>
+<!-- Mobile nav toggle (visible on small screens) -->
+<button id="nav-toggle" aria-label="Toggle navigation" class="md:hidden text-on-surface-variant p-2 rounded-lg hover:bg-white/5">
+  <span class="material-symbols-outlined">menu</span>
+</button>
+<div id="nav-links" class="hidden md:flex gap-md items-center nav-links flex-wrap justify-center md:justify-end">
 <a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md transition-colors hover:text-secondary" href="#hero">Hero</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#about">About</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#skills">Skills</a>
@@ -393,22 +397,22 @@
 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#projects">Projects</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#contact">Contact</a>
 </div>
-<a href="resume.pdf" download class="bg-primary/10 text-primary px-6 py-2 rounded-full border border-primary/20 font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all duration-300 inline-block">Resume</a>
+<a href="resume.pdf" download class="bg-primary/10 text-primary px-4 md:px-6 py-2 rounded-full border border-primary/20 font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all duration-300 inline-block text-xs md:text-sm whitespace-nowrap">Resume</a>
 </nav>
 </header>
 
-<main class="pt-24">
-<section class="min-h-screen flex items-center justify-center relative overflow-hidden px-gutter" id="hero">
-<div class="max-w-container-max mx-auto text-center z-10">
+<main class="pt-24 w-full overflow-x-hidden">
+<section class="min-h-screen flex items-center justify-center relative overflow-hidden px-4 md:px-gutter" id="hero">
+<div class="max-w-container-max mx-auto text-center z-10 w-full">
 <h1 class="font-display text-display mb-sm reveal active">Hi, I'm <span class="text-primary">Purvesh Budhecha</span></h1>
 <div class="h-8 mb-md reveal active">
 <p class="font-headline-md text-headline-md text-on-surface-variant typing-container" id="typing"></p>
 </div>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-lg reveal active">Computer engineering graduate pursuing BTech in Information Technology, passionate about creating intuitive digital experiences and robust software solutions.</p>
 <div class="flex flex-col md:flex-row gap-md justify-center items-center reveal active">
-<a class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-md text-label-md hover:shadow-[0_0_20px_#3cd7ff] transition-all duration-300 transform active:scale-95" href="#projects">View Projects</a>
-<a class="bg-surface-container border border-white/10 text-on-surface px-8 py-3 rounded-lg font-label-md text-label-md backdrop-blur-md hover:bg-white/5 transition-all duration-300" href="resume.pdf" download>Download Resume</a>
-<a class="border border-secondary text-secondary px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-secondary/10 transition-all duration-300" href="#contact">Contact Me</a>
+<a class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-md text-label-md hover:shadow-[0_0_20px_#3cd7ff] transition-all duration-300 transform active:scale-95 w-full md:w-auto" href="#projects">View Projects</a>
+<a class="bg-surface-container border border-white/10 text-on-surface px-8 py-3 rounded-lg font-label-md text-label-md backdrop-blur-md hover:bg-white/5 transition-all duration-300 w-full md:w-auto" href="resume.pdf" download>Download Resume</a>
+<a class="border border-secondary text-secondary px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-secondary/10 transition-all duration-300 w-full md:w-auto" href="#contact">Contact Me</a>
 </div>
 </div>
 <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
@@ -608,7 +612,7 @@
 </div>
 </section>
 
-<section class="py-xl px-gutter reveal active relative overflow-hidden" id="projects">
+<section class="py-xl px-4 md:px-gutter reveal active relative overflow-hidden" id="projects">
 <div class="absolute -top-40 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/15 to-secondary/10 rounded-full blur-3xl opacity-35 pointer-events-none"></div>
 <div class="absolute -bottom-32 right-1/3 w-80 h-80 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl opacity-30 pointer-events-none"></div>
 <div class="floating-element" style="top: 15%; right: 5%; opacity: 0.13;">
@@ -619,105 +623,166 @@
     <line x1="20" y1="90" x2="160" y2="90" stroke="#a8e8ff" stroke-width="0.5"/>
   </svg>
 </div>
-<div class="max-w-container-max mx-auto relative z-10">
-<div class="flex justify-between items-end mb-lg">
+<div class="max-w-container-max mx-auto relative z-10 w-full">
+<div class="flex flex-col md:flex-row justify-between md:items-end mb-lg gap-md">
 <div>
 <h2 class="font-headline-lg text-headline-lg mb-xs">Featured <span class="text-primary">Projects</span></h2>
 <p class="text-on-surface-variant font-body-md text-body-md">A showcase of design and development excellence.</p>
 </div>
 </div>
-<div class="grid md:grid-cols-2 gap-lg">
-<div class="glass-card project-card rounded-2xl overflow-hidden group min-h-[400px] flex flex-col border border-primary/20">
-<div class="relative h-40 bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-primary/30">dashboard</span>
-</div>
-<div class="p-lg flex-1 flex flex-col justify-between">
-<div>
-<div class="flex items-center gap-xs mb-xs">
-<h3 class="font-headline-md text-headline-md">Digital Signage System</h3>
-</div>
-<p class="text-on-surface-variant mb-md font-body-md text-body-md">Centralized content management system enabling real-time display updates across multiple screens with intuitive user interfaces.</p>
-<div class="flex flex-wrap gap-xs mb-md">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Flutter</span>
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">UI/UX Design</span>
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Dashboard</span>
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Responsive</span>
-</div>
-</div>
-<div class="flex gap-md">
-<a href="https://github.com/purvesh3115/Digital-Signage-system" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-primary hover:text-secondary transition-all">
-<span class="material-symbols-outlined text-sm">code</span> GitHub
-</a>
-</div>
-</div>
-</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg auto-rows-max">
 
-<div class="glass-card project-card rounded-2xl overflow-hidden group min-h-[400px] flex flex-col">
-<div class="relative h-40 bg-gradient-to-br from-secondary/20 to-primary/20 overflow-hidden flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-secondary/30">smartphones</span>
-</div>
-<div class="p-lg flex-1 flex flex-col justify-between">
-<div>
-<h3 class="font-headline-md text-headline-md mb-xs">BrightFix Mobile App</h3>
-<p class="text-on-surface-variant mb-md font-body-md text-body-md">Connects users with repair and maintenance service providers with seamless booking flows and intuitive navigation.</p>
-<div class="flex flex-wrap gap-xs mb-md">
-<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">UI/UX Design</span>
-<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Mobile Design</span>
-<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">User Flow</span>
-<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Prototyping</span>
-</div>
-</div>
-<div class="flex gap-md">
-<a href="https://github.com/purvesh3115/BrightFix" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-secondary hover:text-primary transition-all">
-<span class="material-symbols-outlined text-sm">code</span> GitHub
-</a>
-</div>
-</div>
-</div>
+  <!-- Project 1: B2B Influencer & Sponsorship Management Dashboard (Featured) -->
+  <div class="glass-card project-card rounded-2xl overflow-hidden group flex flex-col border border-primary/30 h-full">
+    <div class="relative h-40 md:h-48 bg-surface-container overflow-hidden flex items-center justify-center flex-shrink-0">
+      <img src="assets/projects/b2b-dashboard/graphic.svg" alt="B2B Influencer Dashboard preview" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+      <img src="assets/logo.svg" alt="Purvesh logo" class="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/5 p-1 shadow-lg" />
+    </div>
+    <div class="p-lg flex-1 flex flex-col justify-between">
+      <div>
+        <h3 class="font-headline-md text-headline-md">B2B Influencer & Sponsorship Management Dashboard</h3>
+        <p class="text-on-surface-variant mb-md font-body-md text-body-md">A centralized B2B dashboard to manage creators, brands, sponsorships, deliverables, invoices, analytics, and calendars.</p>
+        <div class="flex flex-wrap gap-xs mb-md">
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">UI/UX Design</span>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">B2B SaaS</span>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Dashboard</span>
+        </div>
+        <p class="font-label-md text-label-md text-on-surface-variant">Role: UI/UX Designer — Team Project</p>
+        <p class="text-on-surface-variant/80 mt-sm">Key contributions: Creator List, Creator Profile, Brand Directory, Sponsorship CRM, Deliverables, Invoice creation.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-md mt-4">
+        <a href="projects/b2b-influencer-dashboard.html" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-all w-full md:w-auto text-center">View Case Study</a>
+        <a href="https://www.figma.com/design/5wTvMNhmV2Gwi9AoWfkJpL/B2B---dashboard?m=auto&t=cox3BWFyesRwXiHK-6" target="_blank" rel="noopener noreferrer" class="border border-primary/20 text-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary/5 transition-all w-full md:w-auto text-center">View Figma</a>
+      </div>
+    </div>
+  </div>
 
-<div class="glass-card project-card rounded-2xl overflow-hidden group min-h-[400px] flex flex-col">
-<div class="relative h-40 bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-primary/30">receipt</span>
-</div>
-<div class="p-lg flex-1 flex flex-col justify-between">
-<div>
-<h3 class="font-headline-md text-headline-md mb-xs">Biller Application</h3>
-<p class="text-on-surface-variant mb-md font-body-md text-body-md">Streamlines billing and invoice management with interfaces for easy invoice generation and customer management.</p>
-<div class="flex flex-wrap gap-xs mb-md">
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Flutter</span>
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Form Design</span>
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Data Management</span>
-</div>
-</div>
-<div class="flex gap-md">
-<a href="https://github.com/purvesh3115/Biller-Application-main" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-primary hover:text-secondary transition-all">
-<span class="material-symbols-outlined text-sm">code</span> GitHub
-</a>
-</div>
-</div>
-</div>
+  <!-- Project 2: Smart Home IoT Management & Energy Dashboard (Featured) -->
+  <div class="glass-card project-card rounded-2xl overflow-hidden group flex flex-col border border-primary/20 h-full">
+    <div class="relative h-40 md:h-48 bg-surface-container overflow-hidden flex items-center justify-center flex-shrink-0">
+      <img src="assets/projects/smart-home-iot/graphic.svg" alt="Smart Home IoT preview" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+      <img src="assets/logo.svg" alt="Purvesh logo" class="absolute top-4 left-4 w-12 h-12 rounded-full bg-white/5 p-1 shadow-lg" />
+    </div>
+    <div class="p-lg flex-1 flex flex-col justify-between">
+      <div>
+        <h3 class="font-headline-md text-headline-md">Smart Home IoT Management & Energy Dashboard</h3>
+        <p class="text-on-surface-variant mb-md font-body-md text-body-md">A room-first smart-home experience to organize rooms, manage devices, and monitor household energy consumption.</p>
+        <div class="flex flex-wrap gap-xs mb-md">
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">UI/UX Design</span>
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">IoT</span>
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Dashboard</span>
+        </div>
+        <p class="font-label-md text-label-md text-on-surface-variant">Role: UI/UX Designer — Team Project</p>
+        <p class="text-on-surface-variant/80 mt-sm">Key contributions: Room management, Add Device flow, Energy Dashboard, Device consumption views.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-md mt-4">
+        <a href="projects/smart-home-iot.html" class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-all w-full md:w-auto text-center">View Case Study</a>
+        <a href="https://www.figma.com/design/rd8y04nLHvdDUnYjwT45mL/Smart-Home---IoT-Devices?m=auto&t=cox3BWFyesRwXiHK-6" target="_blank" rel="noopener noreferrer" class="border border-secondary/20 text-secondary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary/5 transition-all w-full md:w-auto text-center">View Figma</a>
+      </div>
+    </div>
+  </div>
 
-<div class="glass-card project-card rounded-2xl overflow-hidden group min-h-[400px] flex flex-col">
-<div class="relative h-40 bg-gradient-to-br from-secondary/20 to-primary/20 overflow-hidden flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-secondary/30">school</span>
-</div>
-<div class="p-lg flex-1 flex flex-col justify-between">
-<div>
-<h3 class="font-headline-md text-headline-md mb-xs">Placement Preparation Tracker</h3>
-<p class="text-on-surface-variant mb-md font-body-md text-body-md">A comprehensive tool for tracking placement preparation, including job applications, interviews, and career development.</p>
-<div class="flex flex-wrap gap-xs mb-md">
-<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Flutter</span>
-<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Productivity</span>
-<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Task Management</span>
-</div>
-</div>
-<div class="flex gap-md">
-<a href="https://github.com/Ansh28104/Placement-Tracker" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-secondary hover:text-primary transition-all">
-<span class="material-symbols-outlined text-sm">code</span> GitHub
-</a>
-</div>
-</div>
-</div>
+  <!-- Existing projects (kept, ordering adjusted) -->
+  <div class="glass-card project-card rounded-2xl overflow-hidden group flex flex-col border border-primary/20 h-full">
+    <div class="relative h-40 bg-surface-container overflow-hidden flex items-center justify-center flex-shrink-0">
+      <img src="assets/projects/digital-signage/graphic.svg" alt="Digital Signage preview" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+    </div>
+    <div class="p-lg flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-xs mb-xs">
+          <h3 class="font-headline-md text-headline-md">Digital Signage Management Platform</h3>
+        </div>
+        <p class="text-on-surface-variant mb-md font-body-md text-body-md">Designed a centralized digital signage management platform enabling businesses to create, organize, schedule, and monitor content across multiple digital displays from a single interface. The system simplifies screen management, content scheduling, device monitoring, and location-based control, reducing manual operations and improving content delivery consistency.</p>
+        <div class="flex flex-wrap gap-xs mb-md">
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Digital Signage</span>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Dashboard</span>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Content Management</span>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Screen Management</span>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Scheduling</span>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">UI/UX Design</span>
+        </div>
+      </div>
+      <div class="flex gap-md mt-4">
+        <a href="https://github.com/purvesh3115/Digital-Signage-system" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-primary hover:text-secondary transition-all">
+          <span class="material-symbols-outlined text-sm">code</span> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-card project-card rounded-2xl overflow-hidden group flex flex-col h-full">
+    <div class="relative h-40 bg-surface-container overflow-hidden flex items-center justify-center flex-shrink-0">
+      <img src="assets/projects/brightfix/graphic.svg" alt="BrightFix Mobile App preview" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+    </div>
+    <div class="p-lg flex-1 flex flex-col justify-between">
+      <div>
+        <h3 class="font-headline-md text-headline-md mb-xs">BrightFix Mobile App</h3>
+        <p class="text-on-surface-variant mb-md font-body-md text-body-md">Connects users with repair and maintenance service providers with seamless booking flows and intuitive navigation.</p>
+        <div class="flex flex-wrap gap-xs mb-md">
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">UI/UX Design</span>
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Mobile Design</span>
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">User Flow</span>
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Prototyping</span>
+        </div>
+      </div>
+      <div class="flex gap-md mt-4">
+        <a href="https://github.com/purvesh3115/BrightFix" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-secondary hover:text-primary transition-all">
+          <span class="material-symbols-outlined text-sm">code</span> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-card project-card rounded-2xl overflow-hidden group flex flex-col h-full">
+    <div class="relative h-40 bg-surface-container overflow-hidden flex items-center justify-center flex-shrink-0">
+      <img src="assets/projects/biller-application/graphic.svg" alt="Biller Application preview" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+    </div>
+    <div class="p-lg flex-1 flex flex-col justify-between">
+      <div>
+        <h3 class="font-headline-md text-headline-md mb-xs">Biller Application</h3>
+        <p class="text-on-surface-variant mb-md font-body-md text-body-md">Streamlines billing and invoice management with interfaces for easy invoice generation and customer management.</p>
+        <div class="flex flex-wrap gap-xs mb-md">
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Flutter</span>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Form Design</span>
+          <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label-md">Data Management</span>
+        </div>
+      </div>
+      <div class="flex gap-md mt-4">
+        <a href="https://github.com/purvesh3115/Biller-Application-main" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-primary hover:text-secondary transition-all">
+          <span class="material-symbols-outlined text-sm">code</span> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-card project-card rounded-2xl overflow-hidden group flex flex-col h-full">
+    <div class="relative h-40 bg-surface-container overflow-hidden flex items-center justify-center flex-shrink-0">
+      <img src="assets/projects/placement-tracker/graphic.svg" alt="Placement Tracker preview" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+    </div>
+    <div class="p-lg flex-1 flex flex-col justify-between">
+      <div>
+        <h3 class="font-headline-md text-headline-md mb-xs">Placement Preparation Tracker</h3>
+        <p class="text-on-surface-variant mb-md font-body-md text-body-md">A comprehensive tool for tracking placement preparation, including job applications, interviews, and career development.</p>
+        <div class="flex flex-wrap gap-xs mb-md">
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Flutter</span>
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Productivity</span>
+          <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-label-md">Task Management</span>
+        </div>
+      </div>
+      <div class="flex gap-md mt-4">
+        <a href="https://github.com/Ansh28104/Placement-Tracker" target="_blank" rel="noopener noreferrer" class="flex items-center gap-xs text-secondary hover:text-primary transition-all">
+          <span class="material-symbols-outlined text-sm">code</span> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
 </div>
 </div>
 </section>
@@ -804,12 +869,12 @@
 </main>
 
 <footer class="bg-surface-container-lowest w-full py-xl border-t border-white/5 reveal active">
-<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-md">
+<div class="flex flex-col md:flex-row justify-between items-center px-4 md:px-gutter max-w-container-max mx-auto gap-md text-center md:text-left">
 <div>
 <h2 class="font-headline-md text-headline-md text-secondary">Purvesh Budhecha</h2>
 <p class="font-body-md text-body-md text-on-surface-variant">© 2026 Purvesh Budhecha. Built with Precision.</p>
 </div>
-<div class="flex gap-lg">
+<div class="flex flex-wrap gap-lg justify-center md:justify-end">
 <a class="text-on-surface-variant hover:text-primary transition-all duration-300 hover:glow-sm transform hover:-translate-y-1 font-label-md text-label-md" href="https://github.com/purvesh3115" target="_blank" rel="noopener noreferrer">GitHub</a>
 <a class="text-on-surface-variant hover:text-primary transition-all duration-300 hover:glow-sm transform hover:-translate-y-1 font-label-md text-label-md" href="https://www.linkedin.com/in/purvesh-budhecha-800893298/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 <a class="text-on-surface-variant hover:text-primary transition-all duration-300 hover:glow-sm transform hover:-translate-y-1 font-label-md text-label-md" href="https://www.instagram.com/purveshbudhecha/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -842,70 +907,7 @@
         setTimeout(() => toast.classList.remove('show'), 4500);
     }
 
-    // ── 2. Contact form submit ───────────────────────────────────────────────
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const nameEl    = document.getElementById('cf-name');
-        const emailEl   = document.getElementById('cf-email');
-        const messageEl = document.getElementById('cf-message');
-        let valid = true;
-
-        // clear previous errors
-        ['cf-name','cf-email','cf-message'].forEach(id => {
-            document.getElementById(id).classList.remove('invalid');
-        });
-        ['err-name','err-email','err-message'].forEach(id => {
-            document.getElementById(id).classList.remove('show');
-        });
-
-        // validate
-        if (!nameEl.value.trim()) {
-            nameEl.classList.add('invalid');
-            document.getElementById('err-name').classList.add('show');
-            valid = false;
-        }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailEl.value.trim())) {
-            emailEl.classList.add('invalid');
-            document.getElementById('err-email').classList.add('show');
-            valid = false;
-        }
-        if (!messageEl.value.trim()) {
-            messageEl.classList.add('invalid');
-            document.getElementById('err-message').classList.add('show');
-            valid = false;
-        }
-        if (!valid) return;
-
-        // loading state
-        const btn      = document.getElementById('send-btn');
-        const btnLabel = document.getElementById('btn-label');
-        const btnIcon  = document.getElementById('btn-icon');
-        btn.disabled        = true;
-        btnLabel.textContent = 'Sending...';
-        btnIcon.textContent  = 'hourglass_top';
-
-        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
-            .then(() => {
-                showToast('success', '🚀 Message sent! I\'ll get back to you soon.');
-                this.reset();
-                btnLabel.textContent = 'Message Sent!';
-                btnIcon.textContent  = 'check_circle';
-                setTimeout(() => {
-                    btn.disabled        = false;
-                    btnLabel.textContent = 'Send Message';
-                    btnIcon.textContent  = 'send';
-                }, 3000);
-            })
-            .catch((err) => {
-                console.error('EmailJS error:', err);
-                showToast('error', '❌ Something went wrong. Please try again.');
-                btn.disabled        = false;
-                btnLabel.textContent = 'Send Message';
-                btnIcon.textContent  = 'send';
-            });
-    });
+    
 
     // ── 3. Typing Animation ──────────────────────────────────────────────────
     const typingText    = "UI/UX | QA";
@@ -948,24 +950,8 @@
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ── 6. Nav Highlighting ──────────────────────────────────────────────────
-    const sections  = document.querySelectorAll('section');
-    const navLinks  = document.querySelectorAll('header nav div a');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            if (pageYOffset >= section.offsetTop - 150) current = section.getAttribute('id');
-        });
-        navLinks.forEach(link => {
-            link.classList.remove('text-primary','font-bold','border-b-2','border-primary','pb-1');
-            link.classList.add('text-on-surface-variant');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.remove('text-on-surface-variant');
-                link.classList.add('text-primary','font-bold','border-b-2','border-primary','pb-1');
-            }
-        });
-    });
+    <!-- Nav highlighting is handled in js/main.js -->
 </script>
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480">
+  <defs>
+    <linearGradient id="bgP" x1="0" x2="1"><stop offset="0%" stop-color="#061126"/><stop offset="100%" stop-color="#071226"/></linearGradient>
+    <linearGradient id="prog" x1="0" x2="1"><stop offset="0%" stop-color="#3cd7ff"/><stop offset="100%" stop-color="#a4baff"/></linearGradient>
+  </defs>
+
+  <rect width="1200" height="480" fill="url(#bgP)"/>
+
+  <!-- student cards along left to right timeline -->
+  <g transform="translate(80,70)">
+    <rect x="0" y="0" width="152" height="96" rx="10" fill="rgba(255,255,255,0.02)"/>
+    <rect x="188" y="0" width="152" height="96" rx="10" fill="rgba(255,255,255,0.02)"/>
+    <rect x="376" y="0" width="152" height="96" rx="10" fill="rgba(255,255,255,0.02)"/>
+  </g>
+
+  <!-- timeline with stages -->
+  <g transform="translate(64,196)">
+    <line x1="24" y1="48" x2="1040" y2="48" stroke="rgba(255,255,255,0.03)" stroke-width="2" stroke-linecap="round"/>
+    <!-- stages -->
+    <g>
+      <circle cx="120" cy="48" r="12" fill="#3cd7ff"/>
+      <text x="120" y="84" fill="#bcdcff" font-size="12" text-anchor="middle">Applied</text>
+    </g>
+    <g>
+      <circle cx="360" cy="48" r="12" fill="#a4baff"/>
+      <text x="360" y="84" fill="#bcdcff" font-size="12" text-anchor="middle">Interview</text>
+    </g>
+    <g>
+      <circle cx="600" cy="48" r="12" fill="#edb1ff"/>
+      <text x="600" y="84" fill="#bcdcff" font-size="12" text-anchor="middle">Offer</text>
+    </g>
+    <g>
+      <circle cx="840" cy="48" r="12" fill="#64e3ff"/>
+      <text x="840" y="84" fill="#bcdcff" font-size="12" text-anchor="middle">Placed</text>
+    </g>
+  </g>
+
+  <!-- offer letter icon at right -->
+  <g transform="translate(920,220)">
+    <rect x="0" y="0" width="140" height="96" rx="8" fill="rgba(255,255,255,0.015)"/>
+    <path d="M18 20 H122 V40 H18 Z" fill="#3cd7ff"/>
+    <path d="M18 48 H122 V60 H18 Z" fill="#a4baff"/>
+    <rect x="36" y="72" width="68" height="10" rx="4" fill="#64e3ff"/>
+  </g>
+
+  <!-- success check + ribbon -->
+  <g transform="translate(980,120)">
+    <circle cx="40" cy="40" r="36" fill="#0b1720" stroke="#64e3ff" stroke-width="2"/>
+    <path d="M28 40 L36 48 L56 28" stroke="#64e3ff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+</svg>

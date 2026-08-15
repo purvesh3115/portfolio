@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480">
+  <defs>
+    <linearGradient id="baBg" x1="0" x2="1"><stop offset="0%" stop-color="#051223"/><stop offset="100%" stop-color="#071426"/></linearGradient>
+  </defs>
+  <rect width="1200" height="480" fill="url(#baBg)"/>
+
+  <!-- invoice card center -->
+  <g transform="translate(220,80)">
+    <rect x="0" y="0" width="560" height="300" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(60,215,255,0.03)"/>
+    <rect x="24" y="24" width="240" height="40" rx="8" fill="#3cd7ff" opacity="0.08"/>
+    <rect x="24" y="76" width="504" height="18" rx="6" fill="#081826" opacity="0.6"/>
+    <rect x="24" y="106" width="360" height="18" rx="6" fill="#0b1b26" opacity="0.6"/>
+    <rect x="24" y="138" width="200" height="18" rx="6" fill="#a4baff" opacity="0.06"/>
+  </g>
+
+  <!-- calculator/total on right -->
+  <g transform="translate(820,150)">
+    <rect x="0" y="0" width="240" height="160" rx="12" fill="rgba(255,255,255,0.015)"/>
+    <rect x="16" y="16" width="208" height="28" rx="6" fill="#edb1ff" opacity="0.08"/>
+    <rect x="16" y="56" width="56" height="56" rx="8" fill="#3cd7ff" opacity="0.12"/>
+    <rect x="84" y="56" width="56" height="56" rx="8" fill="#a4baff" opacity="0.08"/>
+    <rect x="152" y="56" width="72" height="56" rx="8" fill="#64e3ff" opacity="0.08"/>
+  </g>
+
+</svg>

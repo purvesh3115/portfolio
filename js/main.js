@@ -7,17 +7,106 @@ document.addEventListener('DOMContentLoaded', () => {
     initFormHandling();
     initScrollAnimations();
     initSmoothScroll();
+    initNavHighlighting();
 });
 
 /* --- Mobile Navigation --- */
 function initMobileNav() {
     const navToggle = document.getElementById('nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks = document.getElementById('nav-links') || document.querySelector('.nav-links');
     
     if (!navToggle) return;
     
+    // Toggle the Tailwind `hidden` class for mobile
     navToggle.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        if (window.innerWidth < 768 && navLinks) {
+            navLinks.classList.toggle('hidden');
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', String(!expanded));
+        }
+    });
+
+    // Close mobile menu when a link is clicked
+    if (navLinks) {
+        navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    navLinks.classList.add('hidden');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    }
+}
+
+/* --- Nav Highlighting (updates active link on scroll & click) --- */
+function initNavHighlighting() {
+    const links = Array.from(document.querySelectorAll('#nav-links a[href^="#"], header nav a[href^="#"]'));
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+
+    if (!links.length || !sections.length) return;
+
+    const setActive = (id) => {
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${id}`) {
+                link.classList.add('text-primary','font-bold','border-b-2','border-primary','pb-1');
+                link.classList.remove('text-on-surface-variant');
+            } else {
+                link.classList.remove('text-primary','font-bold','border-b-2','border-primary','pb-1');
+                link.classList.add('text-on-surface-variant');
+            }
+        });
+    };
+
+    // compute header offset and apply CSS variable for scroll-margin
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.offsetHeight : 64;
+    document.documentElement.style.setProperty('--header-offset', `${headerHeight + 8}px`);
+    // apply scroll-padding to body so anchor jumps avoid being hidden
+    document.documentElement.style.scrollPaddingTop = `${headerHeight + 8}px`;
+    sections.forEach(s => s.style.scrollMarginTop = `var(--header-offset)`);
+
+    // IntersectionObserver to detect visible section
+    const observerOptions = {
+        root: null,
+        rootMargin: `-${Math.round(headerHeight + 8)}px 0px -40% 0px`,
+        threshold: [0.15, 0.35, 0.5, 0.75]
+    };
+
+    let activeId = null;
+    const io = new IntersectionObserver((entries) => {
+        // pick the entry with largest intersectionRatio that isIntersecting
+        const visible = entries.filter(e => e.isIntersecting);
+        if (visible.length) {
+            visible.sort((a,b) => b.intersectionRatio - a.intersectionRatio);
+            const topEntry = visible[0];
+            const id = topEntry.target.getAttribute('id');
+            if (id && id !== activeId) {
+                activeId = id;
+                setActive(id);
+            }
+        }
+    }, observerOptions);
+
+    sections.forEach(section => io.observe(section));
+
+    // on click: immediately set active and close mobile nav if open
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const id = href.slice(1);
+                setActive(id);
+                // close mobile menu if present
+                const navLinks = document.getElementById('nav-links');
+                const navToggle = document.getElementById('nav-toggle');
+                if (navLinks && window.innerWidth < 768) {
+                    navLinks.classList.add('hidden');
+                    if (navToggle) navToggle.setAttribute('aria-expanded','false');
+                }
+            }
+        });
     });
 }
 
@@ -38,11 +127,20 @@ function initFormHandling() {
         submitBtn.textContent = 'Sending...';
         
         try {
+            // Support multiple possible input id/name conventions used across versions
+            const getField = (selectors) => {
+                for (const sel of selectors) {
+                    const el = form.querySelector(sel);
+                    if (el) return el.value;
+                }
+                return '';
+            };
+
             const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
+                name: getField(['#name', '#cf-name', '[name="from_name"]', '[name="name"]']),
+                email: getField(['#email', '#cf-email', '[name="reply_to"]', '[name="email"]']),
+                subject: getField(['#subject', '[name="subject"]']) || 'Portfolio Inquiry',
+                message: getField(['#message', '#cf-message', '[name="message"]'])
             };
             
             // Send to backend
@@ -130,14 +228,27 @@ function initScrollAnimations() {
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || !href.startsWith('#')) return;
+            const target = document.querySelector(href);
+            if (!target) return;
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+
+            // Close mobile nav first if open (allow other handlers to run)
+            const navLinks = document.getElementById('nav-links');
+            const navToggle = document.getElementById('nav-toggle');
+            if (navLinks && window.innerWidth < 768) {
+                navLinks.classList.add('hidden');
+                if (navToggle) navToggle.setAttribute('aria-expanded','false');
             }
+
+            // Defer measurement to next frame to allow layout updates (menu close)
+            requestAnimationFrame(() => {
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 64;
+                const targetTop = window.pageYOffset + target.getBoundingClientRect().top - (headerHeight + 8);
+                window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+            });
         });
     });
 }

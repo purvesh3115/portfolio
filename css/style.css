@@ -774,6 +774,47 @@ section {
 
 /* --- Responsive Design --- */
 
+/* Enhance responsive containers for all elements */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Make sections and containers responsive */
+    header {
+        padding: 1rem 1rem !important;
+    }
+    
+    main {
+        padding-top: 5rem;
+    }
+    
+    /* Ensure images and graphics don't overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    /* Project cards should be flexible */
+    .glass-card {
+        width: 100%;
+    }
+    
+    /* Fix overflow on project cards */
+    .project-card {
+        min-height: auto;
+    }
+    
+    /* Ensure product graphics scale properly */
+    .project-card img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: cover;
+    }
+}
+
 /* Small Mobile (320px - 480px) */
 @media (max-width: 480px) {
     .nav-container {
@@ -785,45 +826,57 @@ section {
     }
     
     .nav-links {
-        display: none;
+        display: none !important;
     }
     
     .nav-toggle {
-        display: flex;
+        display: flex !important;
+    }
+    
+    .hero {
+        padding: 6rem 1rem 2rem;
+        min-height: auto;
     }
     
     .hero-title {
-        font-size: 1.8rem;
+        font-size: clamp(1.5rem, 5vw, 2rem);
         margin: 0.5rem 0;
+        line-height: 1.1;
     }
     
     .hero-subtitle {
-        font-size: 0.95rem;
+        font-size: clamp(0.9rem, 3vw, 1rem);
+        max-width: 100%;
+        margin: 1rem auto;
     }
     
     .hero-buttons {
         flex-direction: column;
         align-items: stretch;
         gap: 0.75rem;
+        width: 100%;
     }
     
     .btn {
         width: 100%;
-        padding: 0.65rem 1rem;
+        padding: 0.7rem 1rem;
         font-size: 0.9rem;
+        min-height: 44px;
     }
     
     .btn-primary, .btn-secondary, .btn-tertiary {
         width: 100%;
     }
     
-    .section-title {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-    
     section {
         padding: 2rem 1rem;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .section-title {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+        margin-bottom: 1.5rem;
     }
     
     .bridge-container {
@@ -832,34 +885,41 @@ section {
     }
     
     .image-placeholder {
-        aspect-ratio: 1;
-        font-size: 2.5rem;
+        aspect-ratio: 1 / 1;
+        font-size: clamp(2rem, 5vw, 2.5rem);
+        width: 100%;
     }
     
     .bridge-content h2 {
-        font-size: 1.3rem;
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
+    }
+    
+    .bridge-content p {
+        font-size: 0.95rem;
     }
     
     .skills-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0.75rem;
     }
     
     .skill-card {
-        padding: 1.5rem;
+        padding: 1rem;
     }
     
     .skill-icon {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .timeline-item {
         grid-template-columns: 1fr;
-        gap: 0.5rem;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
     }
     
     .timeline-date {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         margin-bottom: 0.5rem;
     }
     
@@ -869,7 +929,7 @@ section {
     }
     
     .education-card {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
     
     .projects-grid {
@@ -878,26 +938,53 @@ section {
     }
     
     .project-card {
-        padding: 1.5rem;
+        padding: 0;
+        overflow: hidden;
+        min-height: auto;
+        flex: 1;
+    }
+    
+    .project-card > div:first-child {
+        height: 200px;
+        width: 100%;
+    }
+    
+    .project-card > div:last-child {
+        padding: 1rem;
     }
     
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 1rem;
     }
     
     .contact-form {
         gap: 1rem;
     }
     
+    .form-group {
+        margin-bottom: 0;
+    }
+    
     .form-group input,
     .form-group textarea {
-        padding: 0.65rem;
-        font-size: 1rem;
+        padding: 0.7rem;
+        font-size: 16px;
+        min-height: 44px;
+    }
+    
+    .footer {
+        padding: 1.5rem 1rem;
     }
     
     .footer-links {
-        gap: 1rem;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.9rem;
     }
     
     .social-links {
@@ -905,8 +992,11 @@ section {
     }
     
     .social-links a {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        font-size: 1.2rem;
     }
 }
 
@@ -921,20 +1011,25 @@ section {
     }
     
     .nav-links {
-        display: none;
+        display: none !important;
     }
     
     .nav-toggle {
-        display: flex;
+        display: flex !important;
+    }
+    
+    .hero {
+        padding: 6rem 1.5rem 3rem;
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
         margin: 0.75rem 0;
     }
     
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        max-width: 100%;
     }
     
     .hero-buttons {
@@ -945,18 +1040,19 @@ section {
     }
     
     .btn {
-        flex: 1 1 calc(50% - 0.5rem);
-        min-width: 150px;
-        max-width: 250px;
+        flex: 0 1 auto;
+        min-width: 140px;
+        max-width: 100%;
     }
     
     .section-title {
-        font-size: 2rem;
+        font-size: clamp(1.7rem, 5vw, 2rem);
         margin-bottom: 2rem;
     }
     
     section {
         padding: 3rem 1.5rem;
+        max-width: 100%;
     }
     
     .bridge-container {
@@ -965,11 +1061,11 @@ section {
     }
     
     .image-placeholder {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 6vw, 3rem);
     }
     
     .bridge-content h2 {
-        font-size: 1.7rem;
+        font-size: clamp(1.3rem, 4vw, 1.7rem);
     }
     
     .skills-grid {
@@ -978,7 +1074,7 @@ section {
     }
     
     .skill-card {
-        padding: 1.75rem;
+        padding: 1.5rem;
     }
     
     .timeline-item {
@@ -996,7 +1092,7 @@ section {
     }
     
     .education-card {
-        padding: 1.75rem;
+        padding: 1.5rem;
     }
     
     .projects-grid {
@@ -1005,12 +1101,31 @@ section {
     }
     
     .project-card {
-        padding: 1.75rem;
+        padding: 0;
+        min-height: auto;
+    }
+    
+    .project-card img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
     }
     
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+        padding: 1.5rem;
+    }
+    
+    .contact-form {
+        gap: 1.25rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 0.75rem;
+        font-size: 16px;
     }
 }
 
@@ -1022,10 +1137,15 @@ section {
     
     .nav-links {
         gap: 1.5rem;
+        display: flex !important;
     }
     
     .nav-link {
         font-size: 0.9rem;
+    }
+    
+    .nav-toggle {
+        display: none !important;
     }
     
     .hero-title {
@@ -1069,11 +1189,11 @@ section {
 /* Desktop (1025px+) */
 @media (min-width: 1025px) {
     .nav-links {
-        display: flex;
+        display: flex !important;
     }
     
     .nav-toggle {
-        display: none;
+        display: none !important;
     }
     
     .hero-title {
@@ -1084,8 +1204,12 @@ section {
         font-size: 2.5rem;
     }
     
+    section {
+        padding: 4rem 2rem;
+    }
+    
     .skills-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(6, 1fr);
     }
     
     .education-grid {
@@ -1093,11 +1217,172 @@ section {
     }
     
     .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
     }
     
     .contact-content {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Additional responsive fixes */
+@media (max-width: 768px) {
+    /* Ensure containers have proper width and don't overflow */
+    *:not(html):not(body):not(script):not(style):not([data-html2canvas-ignore]) {
+        max-width: 100vw;
+    }
+    
+    /* Fix for any elements that might cause horizontal scroll */
+    body, main, section, div[class*="container"], div[class*="grid"] {
+        overflow-x: hidden;
+    }
+    
+    /* Ensure all images are responsive */
+    img, svg {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    /* Fix for project cards */
+    .grid {
+        width: 100%;
+    }
+    
+    /* Ensure flexbox items don't overflow */
+    .flex {
+        min-width: 0;
+    }
+}
+
+/* Very small screens optimization */
+@media (max-width: 320px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .hero-title {
+        font-size: 1.4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Ensure proper responsive behavior for all screen sizes */
+@media (max-width: 640px) {
+    .max-w-container-max {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    /* Fix grid layouts */
+    .grid {
+        gap: 0.75rem;
+    }
+    
+    /* Ensure proper button sizing */
+    .btn, button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Fix contact section */
+    .contact-item {
+        gap: 0.75rem;
+    }
+    
+    /* Ensure links are tappable */
+    a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+/* Responsive utilities for common patterns */
+@media (max-width: 768px) {
+    .lg\\:block {
+        display: block !important;
+    }
+    
+    .md\\:hidden {
+        display: none !important;
+    }
+    
+    .md\\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .md\\:flex-row {
+        flex-direction: column !important;
+    }
+    
+    .md\\:order-last {
+        order: initial !important;
+    }
+    
+    .md\\:ml-0 {
+        margin-left: 0 !important;
+    }
+    
+    /* Specific fixes for section padding */
+    section[id*="hero"],
+    section[id*="about"],
+    section[id*="skills"],
+    section[id*="experience"],
+    section[id*="education"],
+    section[id*="projects"],
+    section[id*="contact"] {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Fix About section image height on mobile */
+    section[id*="about"] .h-\\[400px\\] {
+        height: 300px !important;
+    }
+    
+    /* Ensure Design section image is responsive */
+    section .h-\\[300px\\] {
+        height: 250px !important;
+    }
+    
+    /* Fix Skills grid on mobile */
+    .grid.grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    /* Ensure form inputs are not cut off */
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 375px) {
+    section {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+    
+    .px-4 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
     }
 }
     position: fixed;

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480">
+  <defs>
+    <linearGradient id="mlBg" x1="0" x2="1"><stop offset="0%" stop-color="#051223"/><stop offset="100%" stop-color="#071426"/></linearGradient>
+  </defs>
+  <rect width="1200" height="480" fill="url(#mlBg)"/>
+
+  <!-- map area -->
+  <g transform="translate(80,56)">
+    <rect x="0" y="0" width="680" height="320" rx="12" fill="rgba(255,255,255,0.02)"/>
+    <!-- pharmacy pins -->
+    <g>
+      <circle cx="120" cy="90" r="20" fill="#3cd7ff"/>
+      <circle cx="300" cy="150" r="16" fill="#edb1ff"/>
+      <circle cx="520" cy="84" r="14" fill="#64e3ff"/>
+    </g>
+  </g>
+
+  <!-- search / result card -->
+  <g transform="translate(800,80)">
+    <rect x="0" y="0" width="320" height="140" rx="12" fill="rgba(255,255,255,0.015)"/>
+    <rect x="16" y="16" width="200" height="28" rx="8" fill="#3cd7ff" opacity="0.12"/>
+    <rect x="16" y="52" width="288" height="20" rx="6" fill="#081826" opacity="0.6"/>
+    <rect x="16" y="80" width="120" height="18" rx="6" fill="#a4baff" opacity="0.08"/>
+  </g>
+
+  <!-- prescription / pill card -->
+  <g transform="translate(820,250)">
+    <rect x="0" y="0" width="160" height="98" rx="10" fill="rgba(255,255,255,0.012)"/>
+    <rect x="14" y="12" width="132" height="18" rx="6" fill="#64e3ff" opacity="0.12"/>
+    <rect x="14" y="38" width="132" height="18" rx="6" fill="#edb1ff" opacity="0.08"/>
+    <circle cx="130" cy="78" r="8" fill="#3cd7ff"/>
+  </g>
+
+</svg>

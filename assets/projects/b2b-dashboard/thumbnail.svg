@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <rect width="1200" height="600" fill="#0e1322"/>
+  <rect x="40" y="40" width="1120" height="220" fill="#0f1724" rx="12"/>
+  <rect x="60" y="80" width="220" height="40" fill="#a8e8ff" rx="6" opacity="0.12"/>
+  <rect x="60" y="140" width="620" height="28" fill="#dee1f7" opacity="0.04"/>
+  <rect x="60" y="180" width="420" height="28" fill="#dee1f7" opacity="0.03"/>
+  <g transform="translate(60,300)" fill="#a8e8ff" opacity="0.08">
+    <rect x="0" y="0" width="320" height="200" rx="10"/>
+    <rect x="360" y="0" width="440" height="200" rx="10"/>
+  </g>
+
+  <!-- center dashboard graphic -->
+  <g transform="translate(420,120)">
+    <rect x="0" y="0" width="360" height="240" rx="12" fill="#0b1220" stroke="#1e2735" />
+    <!-- left column cards -->
+    <g fill="#132032">
+      <rect x="18" y="18" width="100" height="60" rx="8" />
+      <rect x="138" y="18" width="70" height="60" rx="8" />
+      <rect x="220" y="18" width="120" height="60" rx="8" />
+    </g>
+    <!-- chart area -->
+    <polyline points="30,160 80,120 130,140 180,90 230,110 300,70" fill="none" stroke="#3cd7ff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" opacity="0.95"/>
+    <circle cx="80" cy="120" r="4" fill="#a8e8ff" />
+    <circle cx="180" cy="90" r="4" fill="#a8e8ff" />
+    <circle cx="300" cy="70" r="4" fill="#a8e8ff" />
+    <!-- small table rows -->
+    <g fill="#0f1724" opacity="0.9">
+      <rect x="18" y="96" width="320" height="18" rx="4" />
+      <rect x="18" y="122" width="260" height="14" rx="4" />
+      <rect x="18" y="142" width="220" height="12" rx="4" />
+    </g>
+  </g>
+
+  <text x="80" y="50" fill="#a8e8ff" font-family="Poppins, Arial" font-size="26">B2B Influencer & Sponsorship Dashboard — Preview</text>
+</svg>

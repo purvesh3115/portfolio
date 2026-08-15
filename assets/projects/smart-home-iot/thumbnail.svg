@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <rect width="1200" height="600" fill="#0e1322"/>
+  <rect x="40" y="40" width="1120" height="220" fill="#081223" rx="12"/>
+  <g fill="#edb1ff" opacity="0.08">
+    <rect x="80" y="80" width="140" height="120" rx="12"/>
+    <rect x="240" y="80" width="140" height="120" rx="12"/>
+    <rect x="400" y="80" width="140" height="120" rx="12"/>
+  </g>
+  <!-- center smart-home graphic -->
+  <g transform="translate(420,120)">
+    <rect x="0" y="0" width="360" height="240" rx="12" fill="#071020" stroke="#1a2230"/>
+    <!-- room cards -->
+    <g fill="#122134">
+      <rect x="18" y="18" width="100" height="80" rx="10" />
+      <rect x="136" y="18" width="100" height="80" rx="10" />
+      <rect x="254" y="18" width="88" height="80" rx="10" />
+    </g>
+    <!-- device icons (simplified) -->
+    <g fill="#a8e8ff" opacity="0.95">
+      <rect x="40" y="110" width="60" height="36" rx="6" />
+      <rect x="120" y="110" width="60" height="36" rx="6" />
+      <rect x="200" y="110" width="60" height="36" rx="6" />
+      <rect x="280" y="110" width="60" height="36" rx="6" />
+    </g>
+    <!-- energy bolt -->
+    <polygon points="300,40 270,110 290,110 260,180 330,90 310,90" fill="#edb1ff" opacity="0.95" />
+  </g>
+
+  <text x="80" y="50" fill="#a8e8ff" font-family="Poppins, Arial" font-size="26">Smart Home IoT — Energy Dashboard Preview</text>
+</svg>
